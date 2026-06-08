@@ -1,35 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
-
+import { getMovie } from "./getMovie";
 /*
     isme ek api call backend ko jayegi movie detail ke liye
     response me video URi length  release year language likes and dislikes and description aayega
     baad me comments bhi add ho sakta hai
 */
+// "6a20d01248734dd2d344463e"
+function Card({ movieId }) {
+  const [movieData, setMoviedata] = useState();
+  useEffect(() => {
+    getMovie(movieId)
+      .then((res) => {
+        setMoviedata(res.data);
+      })
+      .catch((err) => console.log("some error occured", err));
+  }, [movieId]);
+  console.log(movieData);
 
-function Card({ data }) {
   return (
     <div className="relative group w-40 sm:w-44 md:w-48 lg:w-52 cursor-pointer rounded-xl overflow-hidden transition-all duration-300 hover:scale-110 hover:-translate-y-3 hover:z-30">
-      <Link to={`/movie/${data?.id}`}>
+      <Link to={`${movieData?.url}`}>
         {/* Thumbnail */}
         <div className="relative">
           <img
-            src={data?.thumbnail || "/src/assets/img1.avif"}
-            alt={data?.title}
+            src={movieData?.thumbnail || "/src/assets/img1.avif"}
+            alt={movieData?.title}
             className="w-full h-54 object-cover rounded-xl transition-all duration-500 group-hover:brightness-75 "
           />
 
           {/* Rating Badge */}
-          {data?.rating && (
+          {movieData?.rating && (
             <div className="absolute top-2 right-2 bg-black/70 backdrop-blur-md px-2 py-1 rounded-full text-[10px] font-semibold text-yellow-400">
-              ⭐ {data?.rating || "9.2"}
+              ⭐ {movieData?.rating || "9.2"}
             </div>
           )}
 
           {/* Genre Badge */}
-          {data?.genre && (
+          {movieData?.genre && (
             <div className="absolute top-2 left-2 bg-red-600/90 backdrop-blur-md px-2 py-1 rounded-full text-[10px] font-medium text-white">
-              {data?.genre || "Sci-Fi"}
+              {movieData?.genre || "Sci-Fi"}
             </div>
           )}
         </div>
@@ -38,28 +48,28 @@ function Card({ data }) {
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent p-3 ">
           {/* Title */}
           <h2 className="text-white text-sm font-bold line-clamp-1">
-            {data?.title || "Interstellar"}
+            {movieData?.title || "Interstellar"}
           </h2>
 
           {/* Metadata */}
           <div className="flex items-center gap-2 mt-1 text-[10px] text-gray-300">
-            <span>{data?.year || "2024"}</span>
+            <span>{movieData?.year || "2024"}</span>
 
             <span className="text-gray-500">•</span>
 
-            <span>{data?.duration || "2h 49m"}</span>
+            <span>{movieData?.duration || "2h 49m"}</span>
 
             <span className="text-gray-500">•</span>
 
             <span className="text-green-400 font-semibold">
-              {data?.likes || "98% Match"}
+              {movieData?.likes || "98% Match"}
             </span>
           </div>
 
           {/* Description */}
           <div className="mt-2 min-h-[42px]">
             <p className="text-[10px] leading-relaxed text-gray-200 line-clamp-3">
-              {data?.description ||
+              {movieData?.description ||
                 "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival."}
             </p>
           </div>
