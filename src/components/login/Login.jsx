@@ -31,7 +31,9 @@ function Login() {
             password: formData.password,
         };
         axios
-            .post(LOGINURI, newSesssionData)
+            .post(LOGINURI, newSesssionData, {
+                withCredentials: true,
+            })
             .then((res) => {
                 setResponse(res.data);
                 dispatch(authLogin(res.data));
@@ -39,7 +41,6 @@ function Login() {
             .catch((err) => console.error(err));
     };
     // console.log(response);
-    
 
     return (
         // <div>
