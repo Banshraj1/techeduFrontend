@@ -1,24 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Card, Playlist } from "../index.js";
+import { Playlist, Sponsor, HeroSection } from "../index.js";
 import { getPlaylist } from "../playlist/getPlaylist.js";
-// import { Container } from './styles';
-// GET /trending
-// GET /popular
-// GET /top-rated
-// GET /action
-// GET /comedy
 
 function Home() {
-  const [movies, setMovies] = useState({});
-  // const
-  //  const movies=getMovies("6a20ddac632e27219e28b37e");
-  // setMovies(getmovie("6a20ddac632e27219e28b37e"));
+  const [movies, setMovies] = useState([]);
+
   useEffect(() => {
     const fetchPlaylist = async () => {
       try {
-        // console.log("hii");
         const data = await getPlaylist("6a20ddac632e27219e28b37e");
-        setMovies(data);
+        setMovies(data?.data || []);
       } catch (error) {
         console.log("error occured during fetching playlist", error);
       }
@@ -26,20 +17,30 @@ function Home() {
 
     fetchPlaylist();
   }, []);
-  // console.log(movies.data);
+
   return (
-    <>
-      <div>
-        <div>
-          <h2>Hii... This is H😊Me...</h2>
-          <Playlist data={movies?.data} />
-          <Playlist data={movies?.data} /> 
-          <Playlist data={movies?.data} />
-          <Playlist data={movies?.data} />
-          {/* <Card movieId={"6a20d01248734dd2d344463e"}/> */}
+    <main className="bg-[#0f1014] min-h-screen overflow-x-hidden overflow-y-visible">
+      {/* Sponsor */}
+      <section className="px-4 md:px-8 lg:px-12 py-4">
+        <Sponsor />
+      </section>
+
+      {/* Hero Banner */}
+      <section className="relative">
+        <HeroSection />
+      </section>
+
+      {/* Playlists */}
+      <section className="px-4 md:px-8 lg:px-12 py-8 space-y-12">
+        <div className="relative overflow-visible">
+          <Playlist data={movies} />
+          <Playlist data={movies} />
+          <Playlist data={movies} />
+          <Playlist data={movies} />
+          <Playlist data={movies} />
         </div>
-      </div>
-    </>
+      </section>
+    </main>
   );
 }
 

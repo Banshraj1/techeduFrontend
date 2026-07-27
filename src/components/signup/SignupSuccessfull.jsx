@@ -12,7 +12,7 @@ function SignupSuccessfull({ data,operation }) {
       <br />
       <div className="text-center col-md-6 offset-md-3">
         Hello {data?.data?.username || "There"}, {operation} was
-        successful! We are glad to have you.NOW, you may now proceed...
+        successful! We are glad to have you.NOW, you may now proceed to Login...
       </div>
     </>
   );

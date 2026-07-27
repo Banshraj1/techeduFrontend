@@ -1,0 +1,10 @@
+.outer{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    max-height: 170px;
+}
+.banner{
+    max-width: 60%;
+    height: auto;
+}

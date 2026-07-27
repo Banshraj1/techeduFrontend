@@ -5,6 +5,10 @@ import App from "./App.jsx";
 import { RouterProvider } from "react-router-dom";
 import { createBrowserRouter } from "react-router-dom";
 
+
+// this is for store user data in clint site so that one can knoe if he is logged in or not
+import { Provider } from "react-redux";
+import store from "./store/store.js"
 import { Home, About, Login, Signup, Navbar, Footer, Slider, Layout,SignupSuccessfull } from './components';
 
 const router = createBrowserRouter([{
@@ -21,8 +25,10 @@ const router = createBrowserRouter([{
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+      <Provider store={store}>
     <RouterProvider router={router}>
         <App />
     </RouterProvider>
+    </Provider>
   </StrictMode>,
 );
