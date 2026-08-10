@@ -9,7 +9,7 @@ import { createBrowserRouter } from "react-router-dom";
 // this is for store user data in clint site so that one can knoe if he is logged in or not
 import { Provider } from "react-redux";
 import store from "./store/store.js"
-import { Home, About, Login, Signup, Navbar, Footer, Slider, Layout,SignupSuccessfull } from './components';
+import { Home, About, Login, Signup, Navbar, Footer, Slider, Layout,SignupSuccessfull } from './components/index.js';
 
 const router = createBrowserRouter([{
   path: "/",

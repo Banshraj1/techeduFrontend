@@ -1,7 +1,7 @@
 import React from "react";
-
+import { useNavigate } from "react-router";
 // import { Container } from './styles';
-
+import { useEffect } from "react";
 function Successfull({
   data,
   operation,
@@ -10,6 +10,16 @@ function Successfull({
   classNameUserName,
 }) {
   //   console.log(data.data.username);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+      const timer = setTimeout(() => {
+          navigate("/");
+      }, 2000); // Redirect after 2 seconds
+
+      return () => clearTimeout(timer);
+  }, [navigate]);
   return (
     <>
       <h2 className={`text-center col-md-6 offset-md-3 ${classNameUpper}`}>

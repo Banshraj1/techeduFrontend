@@ -1,5 +1,6 @@
 import Home from "./home/Home.jsx";
 import About from "./about/About.jsx";
+import LoginHelper from "./login/LoginHelper.jsx";
 import Login from "./login/Login.jsx";
 import Signup from "./signup/Signup.jsx";
 import Navbar from "./navbar/Navbar.jsx";
@@ -14,19 +15,20 @@ import { SignupSuccessfull } from "./signup/SignupSuccessfull.jsx";
 import Sponsor from "./sponsor/sponsor.jsx";
 import HeroSection from "./heroSection/HeroSection.jsx";
 export {
-  Home,
-  About,
-  Login,
-  Signup,
-  Navbar,
-  Footer,
-  Card,
-  Playlist,
-  Slider,
-  Layout,
-  Input,
-  Successfull,
-  SignupSuccessfull,
-  Sponsor,
-  HeroSection
+    Home,
+    About,
+    Login,
+    LoginHelper,
+    Signup,
+    Navbar,
+    Footer,
+    Card,
+    Playlist,
+    Slider,
+    Layout,
+    Input,
+    Successfull,
+    SignupSuccessfull,
+    Sponsor,
+    HeroSection,
 };

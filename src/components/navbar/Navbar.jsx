@@ -4,16 +4,19 @@ import { NavLink } from "react-router";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { login as authLogin } from "../../store/authSlice";
-import { GET_CURRENT_USER } from "../Constanst";
+import {
+    login as authLogin,
+    logout as authLogout,
+} from "../../store/authSlice";
+import { GET_CURRENT_USER, LOGOUT_URI } from "../Constanst";
 
 // import { Container } from './styles';
 
 function Navbar() {
     const { user, isLoggedIn } = useSelector((state) => state.auth);
-    const dispatch=useDispatch();
+    const dispatch = useDispatch();
     console.log(user);
-    console.log(isLoggedIn);
+    // console.log(isLoggedIn);
     const [currentUser, setCurrentUser] = useState(null);
 
     // here i will make a call to get current user
@@ -24,7 +27,7 @@ function Navbar() {
                 withCredentials: true,
             })
             .then((res) => {
-                console.log(res.data);
+                // console.log(res.data);
                 setCurrentUser(res.data.data);
                 dispatch(authLogin(res.data.data));
             })
@@ -34,10 +37,33 @@ function Navbar() {
     };
     useEffect(getCurrentUser, []);
 
+    function logoutHandler() {
+        console.log("logged out");
+        axios
+            .get(LOGOUT_URI, {
+                withCredentials: true,
+            })
+            .then((res) => {
+                console.log(res);
+
+                dispatch(authLogout());
+                // alert("logged out");
+            })
+            .catch((error) => {
+                console.log("something went wrong during logging out", error);
+            });
+    }
+
     return (
         <>
-            <div className="bg-gray-800 text-white p-4 flex w-full justiy-between items-cener">
-                <div className="flex space-x-4">
+            <div className="bg-gray-800 text-white p-4 flex justify-between items-center w-full">
+                {/* Left Side */}
+                <div className="text-lg font-semibold">
+                    Hey {user?.username || "There"}!
+                </div>
+
+                {/* Right Side */}
+                <div className="flex items-center space-x-4">
                     <NavLink
                         to="/"
                         className={({ isActive }) =>
@@ -48,6 +74,7 @@ function Navbar() {
                     >
                         Home
                     </NavLink>
+
                     <NavLink
                         to="/about"
                         className={({ isActive }) =>
@@ -60,7 +87,12 @@ function Navbar() {
                     </NavLink>
 
                     {isLoggedIn ? (
-                        <></>
+                        <button
+                            className="hover:text-gray-300 border-b-2 border-transparent" 
+                            onClick={logoutHandler}
+                        >
+                            Logout
+                        </button>
                     ) : (
                         <>
                             <NavLink
@@ -73,6 +105,7 @@ function Navbar() {
                             >
                                 Signup
                             </NavLink>
+
                             <NavLink
                                 to="/login"
                                 className={({ isActive }) =>
@@ -86,11 +119,6 @@ function Navbar() {
                         </>
                     )}
                 </div>
-                {isLoggedIn ? (
-                    <button className="ml-auto mr-[10px]">logOut</button>
-                ) : (
-                    <></>
-                )}
             </div>
         </>
     );
