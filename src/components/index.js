@@ -12,7 +12,7 @@ import Playlist from "./playlist/Playlist.jsx";
 import { Input } from "./utils/Input.jsx";
 import { Successfull } from "./utils/Successfull.jsx";
 import { SignupSuccessfull } from "./signup/SignupSuccessfull.jsx";
-import Sponsor from "./sponsor/sponsor.jsx";
+import Sponsor from "./sponsor/Sponsor.jsx";
 import HeroSection from "./heroSection/HeroSection.jsx";
 export {
     Home,
