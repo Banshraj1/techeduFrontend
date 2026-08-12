@@ -1,10 +1,11 @@
-const LOGINURI = "http://localhost:8000/techedu/v1/login";
-const REGISTER_URI = "http://localhost:8000/techedu/v1/register";
-const ABOUT_URI = "http://localhost:8000/techedu/v1/about";
-const GET_CURRENT_USER = "http://localhost:8000/techedu/v1/get-me";
-const LOGOUT_URI = "http://localhost:8000/techedu/v1/logout";
 const BASE_URI = "http://localhost:8000/";
-const MIDDLE_URI = "techedu/v1/admin/";
+const MIDDLE_URI = "techedu/v1/";
+const PREFIX_URI = BASE_URI + MIDDLE_URI;
+const LOGINURI = PREFIX_URI+"login";
+const REGISTER_URI = PREFIX_URI + "register";
+const ABOUT_URI = PREFIX_URI + "about";
+const GET_CURRENT_USER = PREFIX_URI + "get-me";
+const LOGOUT_URI = PREFIX_URI + "logout";
 const GET_PLAYLIST_URI = "p/get/playlist";
 // const
 
