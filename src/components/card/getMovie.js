@@ -5,7 +5,10 @@ export const getMovie = async (movieId) => {
   try {
     // console.log(movieId);
     const response = await api.get(
-      `http://localhost:8000/techedu/v1/admin/v/get/video/${movieId}`,
+        `http://localhost:8000/techedu/v1/admin/v/get/video/${movieId}`,
+        {
+            withCredentials: true,
+        },
     );
     // console.log(response.data);
     return response.data;

@@ -3,22 +3,25 @@ import { api } from "../utils/axios.js";
 import { BASE_URI, GET_PLAYLIST_URI, MIDDLE_URI } from "../Constanst.js";
 import { useState } from "react";
 async function getPlaylist(playlistId) {
-  try {
-    // const response = await axios.post(
-    //   "http://localhost:8000/techedu/v1/admin/p/get/playlist/",
-    //   { playlistId },
-    // );
-    console.log(playlistId);
+    try {
+        // const response = await axios.post(
+        //   "http://localhost:8000/techedu/v1/admin/p/get/playlist/",
+        //   { playlistId },
+        // );
+        console.log(playlistId);
 
-    const response = await axios.get(
-      `http://localhost:8000/techedu/v1/admin/p/get/playlist/${playlistId}`,
-    );
-    console.log(response);
-    return response.data;
-  } catch (error) {
-    console.log("Error occured during getting playlist::", error);
-    throw error;
-  }
+        const response = await axios.get(
+            `${BASE_URI}${MIDDLE_URI}admin/${GET_PLAYLIST_URI}/${playlistId}`,
+            {
+                withCredentials: true,
+            },
+        );
+        console.log(response);
+        return response.data;
+    } catch (error) {
+        console.log("Error occured during getting playlist::", error);
+        throw error;
+    }
 }
 export { getPlaylist };
 
