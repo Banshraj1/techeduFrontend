@@ -9,9 +9,11 @@ async function getPlaylist(playlistId) {
         //   { playlistId },
         // );
         console.log(playlistId);
-
+        const get_playlist_uri = `${BASE_URI}${MIDDLE_URI}admin/${GET_PLAYLIST_URI}/${playlistId}`;
+        console.log(get_playlist_uri);
+        
         const response = await axios.get(
-            `${BASE_URI}${MIDDLE_URI}admin/${GET_PLAYLIST_URI}/${playlistId}`,
+            get_playlist_uri,
             {
                 withCredentials: true,
             },

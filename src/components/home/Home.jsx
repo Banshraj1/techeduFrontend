@@ -12,7 +12,7 @@ function Home() {
     useEffect(() => {
         const fetchPlaylist = async () => {
             try {
-                const data = await getPlaylist("6a20ddac632e27219e28b37e");
+                const data = await getPlaylist("6a20ddac632e27219e28b37e");              
                 setMovies(data?.data || []);
             } catch (error) {
                 console.log("error occured during fetching playlist", error);
