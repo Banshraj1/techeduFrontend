@@ -3,24 +3,25 @@ import React from "react";
 
 function Playlist({ data }) {
   const movieData = data?.elements;
-
+  // console.log(data);
   return (
-    <section className="w-full py-4">
-      {/* Heading */}
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold text-white">
-          {data?.title || "Trending"}
-        </h2>
+      <section className="w-full py-4">
+          {/* Heading */}
 
-        <button className="text-sm text-gray-400 hover:text-white transition-colors">
-          View All
-        </button>
-      </div>
+          <div className="flex items-center justify-between mb-4">
+              <h2 className="text-2xl font-bold text-white">
+                  {data?.playlistName || "Trending"}
+              </h2>
 
-      {/* IMPORTANT WRAPPER */}
-      <div className="relative py-10 overflow-visible">
-        <div
-          className="
+              <button className="text-sm text-gray-400 hover:text-white transition-colors">
+                  View All
+              </button>
+          </div>
+
+          {/* IMPORTANT WRAPPER */}
+          <div className="relative py-10 overflow-visible">
+              <div
+                  className="
           flex
           gap-4
           overflow-x-auto
@@ -28,22 +29,22 @@ function Playlist({ data }) {
           scrollbar-hide
           px-4
           "
-        >
-          {movieData?.map((obj, index) => (
-            <div
-              key={index}
-              className="
+              >
+                  {movieData?.map((obj, index) => (
+                      <div
+                          key={index}
+                          className="
               flex-shrink-0
               relative
               overflow-visible
               "
-            >
-              <Card movieId={obj} />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+                      >
+                          <Card movieId={obj} />
+                      </div>
+                  ))}
+              </div>
+          </div>
+      </section>
   );
 }
 
