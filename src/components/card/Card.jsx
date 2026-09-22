@@ -46,9 +46,6 @@ function Card({ movieId }) {
                     )}
                 </div>
                 {/* {console.log(movieData?._id)} */}
-
-                {/* Hover Overlay "https://techedu-videos.s3.eu-north-1.amazonaws.com//chapters/0c183d79-c413-4141-a561-0675ccffbde8/index.m3u8"
-                 */}
                 <div className=" absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent  p-3  ">
                     <h2 className="text-white text-sm font-bold line-clamp-1">
                         {movieData?.title || "Movie Title"}
