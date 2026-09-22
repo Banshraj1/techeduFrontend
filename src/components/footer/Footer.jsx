@@ -1,12 +1,11 @@
 import React from "react";
 // import { Container } from './styles';
-import { HomePage } from "../player/HomePage.jsx";
+import { MyPlayer } from "../player/MyPlayer.jsx";
 
 function Footer() {
     return (
         <>
             Hii, This is Footer...😊
-            <HomePage />
         </>
     );
 }

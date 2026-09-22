@@ -12,8 +12,12 @@ import Playlist from "./playlist/Playlist.jsx";
 import { Input } from "./utils/Input.jsx";
 import { Successfull } from "./utils/Successfull.jsx";
 import { SignupSuccessfull } from "./signup/SignupSuccessfull.jsx";
+import { WatchVideo } from "./watchpage/WatchVideo.jsx";
 import Sponsor from "./sponsor/Sponsor.jsx";
 import HeroSection from "./heroSection/HeroSection.jsx";
+import { WatchPage } from "./watchpage/WatchPage.jsx";
+import { getMovie } from "./card/getMovie.js";
+
 export {
     Home,
     About,
@@ -31,4 +35,7 @@ export {
     SignupSuccessfull,
     Sponsor,
     HeroSection,
+    WatchVideo,
+    WatchPage,
+    getMovie
 };
