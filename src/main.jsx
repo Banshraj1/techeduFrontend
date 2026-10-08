@@ -13,13 +13,16 @@ import {
     About,
     Login,
     Signup,
+    OTPSignup,
     Navbar,
     Footer,
     Slider,
     Layout,
     SignupSuccessfull,
+    VerifyOTP,
     WatchVideo,
     WatchPage,
+    Development,
 } from "./components/index.js";
 
 const router = createBrowserRouter([
@@ -30,9 +33,11 @@ const router = createBrowserRouter([
             { path: "/", element: <Home /> },
             { path: "/about", element: <About /> },
             { path: "/login", element: <Login /> },
-            { path: "/signup", element: <Signup /> },
+            { path: "/signup", element: <OTPSignup /> },
             { path: "/signup-success", element: <SignupSuccessfull /> },
             { path: "/watch/:movieId", element: <WatchPage /> },
+            { path: "/verify", element: <VerifyOTP /> },
+            { path: "/dev", element: <Development /> },
         ],
     },
 ]);

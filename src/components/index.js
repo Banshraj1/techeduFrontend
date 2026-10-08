@@ -17,6 +17,9 @@ import Sponsor from "./sponsor/Sponsor.jsx";
 import HeroSection from "./heroSection/HeroSection.jsx";
 import { WatchPage } from "./watchpage/WatchPage.jsx";
 import { getMovie } from "./card/getMovie.js";
+import VerifyOTP from "./verifiyotp/VerifyOTP.jsx";
+import Development from "./development/Development.jsx";
+import { OTPSignup } from "./signup/index.js";
 
 export {
     Home,
@@ -24,6 +27,8 @@ export {
     Login,
     LoginHelper,
     Signup,
+    OTPSignup,
+    VerifyOTP,
     Navbar,
     Footer,
     Card,
@@ -37,5 +42,6 @@ export {
     HeroSection,
     WatchVideo,
     WatchPage,
-    getMovie
+    getMovie,
+    Development,
 };

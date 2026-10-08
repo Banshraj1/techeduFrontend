@@ -47,7 +47,7 @@ function Navbar() {
                 console.log(res);
 
                 dispatch(authLogout());
-                // alert("logged out");
+                alert("logged out");
             })
             .catch((error) => {
                 console.log("something went wrong during logging out", error);
