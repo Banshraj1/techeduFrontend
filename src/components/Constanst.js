@@ -1,6 +1,6 @@
 // const BASE_URI = "https://techedu-eta.vercel.app/";
-// const BASE_URI = "https://techedu-1.onrender.com/";
-const BASE_URI = "http://localhost:8000/";
+const BASE_URI = "https://techedu-1.onrender.com/";
+// const BASE_URI = "http://localhost:8000/";
 const MIDDLE_URI = "techedu/v1/";
 const PREFIX_URI = BASE_URI + MIDDLE_URI;
 const LOGINURI = PREFIX_URI + "login";
