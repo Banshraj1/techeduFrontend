@@ -1,11 +1,14 @@
+// Is file ko email input lene ke liye use kr rha hu 
+
 import React, { useState } from "react";
-import { Input } from "../index.js";
-// import { Container } from './styles';
+import { Input } from "../../index.js";
+import axios from "axios";
+import { GET_OTP_URI } from "../../Constanst.js";
 
 function EmailForm({ email, setEmail, setVerifyOTP }) {
+    const [error, setError] = useState(null);
     const handleChange = (e) => {
         console.log(e);
-
         setEmail(e.target.value);
     };
     console.log(email);
@@ -15,11 +18,19 @@ function EmailForm({ email, setEmail, setVerifyOTP }) {
         e.preventDefault();
         console.log(
             "email sent to backend to store and to send otp also disabled input field",
+            GET_OTP_URI,
         );
-        // .then
-        setIsDisabled(true);
-        setVerifyOTP(true);
+        axios
+            .post(GET_OTP_URI, {email})
+            .then((res) => {
+                // setResponse(res)
+                console.log(res);
+                setIsDisabled(true);
+                setVerifyOTP(true);
+            })
+            .catch((err) => setError(err));
     };
+
 
     return (
         <>

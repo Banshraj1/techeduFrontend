@@ -1,3 +1,5 @@
+// ye wali file utils ke sare file ko export kr rhi hai and unko ek sath combine krke ek signup page banayegi
+
 import React, { useState } from "react";
 import { EmailForm, OTPVerify, DetailedForm } from "./index";
 

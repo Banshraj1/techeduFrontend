@@ -1,10 +1,13 @@
-import React, { useState } from "react";
-import { Input, Successfull } from "../index.js";
-import axios from "axios";
-import { REGISTER_URI } from "../Constanst.js";
+// otp verify hone ke baad is form se input lekr backend ko send kr rha hu 
 
-function DetailedForm({email}) {
-  
+import React, { useState } from "react";
+import { Input, Successfull } from "../../index.js";
+import axios from "axios";
+import { REGISTER_URI } from "../../Constanst.js";
+import { useNavigate } from "react-router-dom";
+
+
+function DetailedForm({ email }) {
     const [formData, setFormData] = useState({
         username: "",
         email: email,
@@ -75,7 +78,7 @@ function DetailedForm({email}) {
                                         handleChange={handleChange}
                                     />
                                 </div>
-                                
+
                                 <div className="mb-2">
                                     <label
                                         className="text-gray-700"

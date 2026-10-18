@@ -8,9 +8,15 @@ const REGISTER_URI = PREFIX_URI + "register";
 const ABOUT_URI = PREFIX_URI + "about";
 const GET_CURRENT_USER = PREFIX_URI + "get-me";
 const LOGOUT_URI = PREFIX_URI + "logout";
-const VERIFY_OTP_URI = PREFIX_URI + "verify";
 const GET_PLAYLIST_URI = "p/get/playlist";
 // const
+const GET_OTP_URI = PREFIX_URI + "getOTP";
+const VERIFY_OTP_URI = PREFIX_URI + "veriftOTP";
+const VERIFIED_REGISTER_URI = PREFIX_URI + "register";
+
+// "/verified/getOtp").post(getOTP);
+// router.route("/verified/veriftOTP").post(verifyOTP);
+// router.route("/verified/register"
 
 export {
     LOGINURI,
@@ -22,4 +28,6 @@ export {
     GET_PLAYLIST_URI,
     LOGOUT_URI,
     VERIFY_OTP_URI,
+    GET_OTP_URI,
+    VERIFIED_REGISTER_URI
 };

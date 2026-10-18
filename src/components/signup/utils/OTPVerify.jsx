@@ -1,22 +1,34 @@
+// is file se otp input lekr verify hone ke liye bhejna hai
+// Hello Hello
 import React, { useState } from "react";
-import { Input } from "../index.js";
+import { Input } from "../../index.js";
+import axios from "axios";
+import { VERIFY_OTP_URI } from "../../Constanst.js";
 
 function OTPVerify({ email, SetIsVerified }) {
+    const [error, setError] = useState(null);
+
     const handleChange = (e) => {
         console.log(e);
         setOTP(e.target.value);
     };
-    const [OTP,setOTP]=useState("")
+    const [OTP, setOTP] = useState("");
     console.log(OTP);
     const [isDisabled, setIsDisabled] = useState(false);
     const submitHandler = (e) => {
         // console.log(e);
         e.preventDefault();
-        console.log(`otp ${OTP} and email ${email} sent to backend to verify `);
-        // .then
-        SetIsVerified(true);
-        setIsDisabled(true);
-        // .catch
+        console.log(
+            `otp ${OTP} and email ${email} sent to backend to verify ${VERIFY_OTP_URI}`,
+        );
+        axios
+            .post(VERIFY_OTP_URI, { code: OTP, email: email })
+            .then((res) => {
+                // setResponse(res)
+                SetIsVerified(true);
+                setIsDisabled(true);
+            })
+            .catch((err) => setError(err));
     };
 
     return (
