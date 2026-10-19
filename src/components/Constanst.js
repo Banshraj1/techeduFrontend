@@ -1,6 +1,6 @@
 // const BASE_URI = "https://techedu-eta.vercel.app/";
-const BASE_URI = "https://techedu-1.onrender.com/";
-// const BASE_URI = "http://localhost:8000/";
+// const BASE_URI = "https://techedu-1.onrender.com/";
+const BASE_URI = "http://localhost:8000/";
 const MIDDLE_URI = "techedu/v1/";
 const PREFIX_URI = BASE_URI + MIDDLE_URI;
 const LOGINURI = PREFIX_URI + "login";
@@ -11,7 +11,7 @@ const LOGOUT_URI = PREFIX_URI + "logout";
 const GET_PLAYLIST_URI = "p/get/playlist";
 // const
 const GET_OTP_URI = PREFIX_URI + "getOTP";
-const VERIFY_OTP_URI = PREFIX_URI + "veriftOTP";
+const VERIFY_OTP_URI = PREFIX_URI + "verifyOTP";
 const VERIFIED_REGISTER_URI = PREFIX_URI + "register";
 
 // "/verified/getOtp").post(getOTP);
